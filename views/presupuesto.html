@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/script.js" defer></script>
+    <script src="../js/formulario.js" defer></script>
+    <title>Freyja's Sanctuary</title>
+</head>
+<body>
+    <header>
+        <div class="logoCont">
+            <img class="logo" src="../imagenes/logo.png" alt="Logo de Freyja's sanctuary" width="84" height="100">
+            <h1>Freyja's sanctuary</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="navbar">
+            <a href="../index.html">inicio</a>
+            <a href="galeria.html">Galeria</a>
+            <a class="selec" href="presupuesto.html">Presupuesto</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
+
+    
+    <div class="contPresu">
+        
+         <div class="formularios-container">
+            <form onsubmit="validarFormulario(event)" action="#">
+                        
+            <h2>Formulario de Solicitud:</h2> 
+            <!-- Formulario 1 -->
+             <div id="cForm">
+                <div class="bloque-formulario1">
+                    <h3>Datos:</h3>
+                    <label for="nmbr">Nombre:</label>
+                    <input type="text" id="nmbr" name="nmbr" placeholder="Nombre" autocomplete="given-name" required><br>
+                    <label for="ape">Apellidos:</label>
+                    <input type="text" id="ape" name="ape" placeholder="Apellidos" autocomplete="family-name" required><br>
+                    <label for="tlf">Teléfono:</label><br>
+                    <input type="text" id="tlf" name="tlf" placeholder="Teléfono" autocomplete="tel" required><br>
+                    <label for="email">Correo Electrónico:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Correo Electrónico" autocomplete="email" required><br>
+                    <label for="textBox">Inserte aquí sus dudas:</label><br>
+                    <textarea name="textBox" id="textBox"></textarea>
+                    <div class="contBoto">
+                        <button type="submit" value="Enviar">Enviar</button>
+                        <button type="reset">Resetear</button>
+                    </div>
+                    
+                </div>
+                
+                <!-- Formulario 2 -->
+                <div class="bloque-formulario2"> 
+                    
+                            <h3>Presupuesto:</h3>
+                        <fieldset>
+                            <legend>Elige un producto</legend>
+                            <label for="producto" class="radio-linea">Producto:</label>
+                            <select id="producto" name="producto" onchange="calcularTotal()">
+                                <option value="">Seleccionar una opción</option>
+                                <option value="15">Pequeña - 15€</option>
+                                <option value="25">Mediana - 25€</option>
+                                <option value="35">Grande - 35€</option>
+                            </select>
+                        </fieldset>
+
+                        <div>
+                            <p>Plazo:</p>
+                            <div class="radio-linea">
+                                <label for="unidad">Unidad:</label>
+                                <select id="unidad" name="unidad" onchange="calcularTotal()">
+                                    <option value="meses" selected>Meses</option>
+                                    <option value="dias">Días</option>
+                                </select>
+                            </div>
+                            <div class="radio-linea">
+                                <label for="plazoNumero">Cantidad:</label>
+                                <input type="number" id="plazoNumero" name="plazoNumero" min="1" max="365" step="1" value="1" onchange="calcularTotal()" oninput="calcularTotal()">
+                            </div>
+                            <small style="color:#eee;">Meses: 1 = 0%, 2 = 5%, 6 = 10%, +7 = 15%. <br> Días: 3 = +5% recargo, 4–7 = 0%, 8–10 = −5%.</small>
+                        </div> 
+
+                        <fieldset>
+                            <legend>Elige los extras para el producto</legend>
+                            <ul>
+                                <li>
+                                    <label for="extraColor">
+                                        <input type="checkbox" id="extraColor" name="extras" value="5" onchange="calcularTotal()" onclick="calcularTotal()">
+                                        Color personalizado +5€
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="extraTipografia">
+                                        <input type="checkbox" id="extraTipografia" name="extras" value="7" onchange="calcularTotal()" onclick="calcularTotal()">
+                                        Tipografía personalizada +7€
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="extraTerminacion">
+                                        <input type="checkbox" id="extraTerminacion" name="extras" value="6" onchange="calcularTotal()" onclick="calcularTotal()">
+                                        Terminación personalizada +6€
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="extraNombre">
+                                        <input type="checkbox" id="extraNombre" name="extras" value="4" onchange="calcularTotal()" onclick="calcularTotal()">
+                                        Nombre personalizado +4€
+                                    </label>
+                                </li>
+                            </ul>
+                        </fieldset>
+
+                        <!-- Caja de total -->
+                        <div>
+                            <hr>
+                            <h5>PRESUPUESTO TOTAL:</h5>
+                                <span id="total">0€</span>
+                        </div>
+                        <div class="check">
+                            <label>
+                                <input type="checkbox" id="condiciones" required>
+                                <a href="avisoLegal.html">Acepto las condiciones de privacidad</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <div>
+            <a href="https://www.instagram.com/">
+            <img src="../imagenes/Instagram_logo_2022.jpg.webp" alt="instagram" title="instagram" width="50" height="50">
+            </a>
+            <a href="https://www.facebook.com/">
+            <img src="../imagenes/facebook.jpg" alt="facebook" title="facebook" width="50" height="50">
+            </a>
+            <a href="https://twitter.com/">
+            <img src="../imagenes/twiter.png" alt="twitter" title="twitter" width="50" height="50">
+            </a> 
+            <p><a href="contacto.html">Plaça d'Octavià, 7, Sant Cugat 08892, España.</a></p>
+            <p><a href="avisoLegal.html">&copy; 2023 Freyja's Sanctuary. Todos los derechos reservados.</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

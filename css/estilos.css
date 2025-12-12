@@ -1,0 +1,328 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {    
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column; /*header, nav, etc. en columna */
+    background-image: url(../imagenes/fondoBambu.png);
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+
+header {  
+    background: linear-gradient(to right, #141E14, #2A532A, #141E14);
+    position: sticky;
+    top: 0;
+    height: 100px;
+    z-index: 1000;
+}
+
+header h1 {
+    margin-left: 10px;
+    color: rgb(243, 247, 243);
+}
+
+
+nav{
+    background: linear-gradient(to right, #141E14, #2A532A, #141E14);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    position: sticky;
+    top: 100px;
+    z-index: 999;
+}
+
+nav a{
+    padding: 15px;
+    width: 100%;
+    color: rgb(253, 253, 253);
+    text-decoration: none;
+    text-align: center;
+    align-self: center;
+}
+nav a:hover{
+    background-color: #1EBD1E;
+    color: rgb(20, 30, 20);
+    text-decoration: none;
+    text-align: center;
+}
+
+aside{
+    flex: 10%;
+    background-color: #f4f4f4; /* Color de fondo opcional */
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+main{
+    flex: 90%; /* Ocupa el resto del espacio disponible */
+    padding: 20px;
+}
+
+footer{
+    background: linear-gradient(to right, #141E14, #2A532A, #141E14);
+    width: 100%;
+    padding: 10px;
+    margin-top: auto; /* Empuja el footer al final */
+}
+footer a{
+    color: rgb(253, 253, 253);
+    text-decoration: none;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+button, input[type="radio"]{ /*Cambia el cursor */
+    cursor: pointer;
+}
+/*-----------CLASES-----------*/
+
+.logoCont{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    height: 100px;
+    width: 84.41px;
+}
+.navbar{
+    display: flex;
+    width: 70%;
+    list-style: none;
+    position: sticky;
+}
+.btN{
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #4dbd2c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btN.ocultar{
+    background-color: #e62d2d;
+}
+
+.tituloSeccion{
+    text-align:center;
+    margin-top: 30px;
+}
+.selec{
+    text-decoration: underline;
+    color: #00E900;
+}
+.contenedorPrincipal {
+    display: flex; /* Coloca el aside y el main en fila */
+    flex-direction: row; /* Asegura que aside esté a la izquierda y main a la derecha */
+    width: 100%;
+    flex: 1;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.contenedor img {
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.velasGaleria {
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+}
+
+/*CLASES PRESUPUESTOS*/
+.contPresu{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(67, 143, 44, 0.4);
+    flex: 1; /* Ocupa el espacio disponible */
+    padding: 20px;
+}
+.contPresu form {
+    margin-left: 20px;
+    padding: 10px;
+}
+.contPresu h3{
+    text-align: center;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    color: rgb(236, 235, 234);
+}
+.radio-linea { /*Hace que se alineen los radio buttons y el texto*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.formularios-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    color: rgb(247, 244, 244);
+    background-color: rgba(56, 35, 4, 0.4);
+    margin: 0 auto;
+    justify-content: center;
+    align-items: stretch;
+}
+.formularios-container .bloques-row {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    width: 100%;
+}
+.formularios-container ul{
+    list-style: none;
+}
+.formularios-container ul li{
+    margin-left: 10px;
+    padding: 2px;
+    font-size: 13px;
+}
+
+.bloque-formulario1 {
+    padding-top: 15px;
+    padding-left: 150px;
+    width: 500px;
+    line-height: 1.4;
+}
+.bloque-formulario2 {
+    flex: 1;
+    min-width: 400px;
+    margin-top: 20px;
+    margin-left: 120px;
+    padding-right: 20%;
+    width: 30%;
+    line-height: 1.3;
+}
+.bloque-formulario2 form {
+    text-align: left;
+}
+
+.contPresu button[type="submit"], button[type="reset"] {
+    border-radius: 20%;
+    background-color: rgb(221, 221, 66);
+    width: 80px;
+    height: 20px;
+    margin: 5px;
+}
+
+.contBoto {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.check {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+.plegal{
+    text-align: left;
+    font-weight: bold;
+    padding: 20px;
+}
+/*----------------CONTACTO*/
+.divCont{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 55%;
+    height: 100%;
+    padding: 10px;
+    color: rgb(247, 244, 244);
+    background-color: rgba(56, 35, 4, 0.4);
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/*-------------IDENTIFICADORES-------------*/
+
+#asidePresentacion{
+    flex: 30%;
+    padding: 20px;
+}
+#sections{
+    flex: 70%;
+    padding: 20px;
+}
+
+#galeriaIndex{
+    align-items: center;
+    display: flex;
+} /* Ajustes para la estructura general con aside y main en fila */
+
+
+#sobreNosotrosEmpresa{
+    display: flex;
+    flex-direction: column;
+    text-align  : center;
+}
+#proyectos{
+    display: flex;
+    flex-direction: column;
+    text-align  : center;
+}
+#noticiasRelacionadas{
+    display: flex;
+    flex-direction: column;
+}
+#conMap{
+    color: black;
+}
+#map {
+    width: 90%;
+    height: 400px;  
+    padding: 20px;
+    margin: 10px;
+}
+#textBox {
+    width: 100%;
+    height: 100px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+#cForm {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    margin: 0;
+    align-items: flex-start;
+}
+/*
+#cargarNoticia1, #cargarNoticia2 {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #4dbd2c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}*/
