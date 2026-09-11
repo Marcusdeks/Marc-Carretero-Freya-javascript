@@ -3,80 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Velas artesanales y personalizadas hechas a mano en Sant Cugat. Elige aroma, color, diseño y personaje.">
+    <link rel="icon" href="imagenes/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="css/estilos.css">
     <script src="js/script.js" defer></script>
-    <title>Freyja's Sanctuary</title>
+    <script src="js/ui.js" defer></script>
+    <title>Freyja's Sanctuary — Velas artesanales y personalizadas</title>
 </head>
 <body>
-    <header>
-        <div class="logoCont">
-            <img class="logo" src="imagenes/logo.png" alt="Logo de Freyja's sanctuary" width="84" height="100">
-            <h1>Freyja's sanctuary</h1>
+
+    <header class="cabecera">
+        <div class="envoltorio cabecera-inner">
+            <a class="marca" href="index.html">
+                <img src="imagenes/logo.png" alt="Logo de Freyja's Sanctuary" width="84" height="100">
+                <span class="marca-texto">
+                    <span class="marca-nombre">Freyja's Sanctuary</span>
+                    <span class="marca-lema">Velas artesanales</span>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navPrincipal">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav-principal" id="navPrincipal" aria-label="Navegación principal">
+                <a class="selec" href="index.html">Inicio</a>
+                <a href="views/galeria.html">Galería</a>
+                <a href="views/presupuesto.html">Presupuesto</a>
+                <a href="views/contacto.html">Contacto</a>
+                <a class="boton boton--primario boton--pequeno nav-cta" href="views/presupuesto.html">Pide tu vela</a>
+            </nav>
         </div>
     </header>
 
-    <nav>
-        <div class="navbar">
-            <a class="selec" href="">inicio</a>
-            <a href="views/galeria.html">Galeria</a>
-            <a href="views/presupuesto.html">Presupuesto</a>
-            <a href="views/contacto.html">Contacto</a>
-        </div>
-    </nav>
+    <main class="contenido-principal">
 
-    <div class="contenedorPrincipal">
-        <aside>
-            <section id="Presentacion">
-                <h2>Sobre Nosotros</h2> <br>
-                <h3>Creadores de velas artesanales y personalizadas.</h3>
-            </section>
-        </aside>
+        <!-- ---------------- HERO ---------------- -->
+        <section class="hero">
+            <div class="envoltorio hero-inner">
+                <div class="hero-texto revelar">
+                    <span class="antetitulo">Hecho a mano en Sant Cugat</span>
+                    <h1>Luz que cuenta <span class="destacado">tu historia</span></h1>
+                    <p>
+                        Cada vela es una pieza única, elaborada con cera vegetal y aromas naturales.
+                        Elige el color, el diseño y el perfume: nosotros le damos vida.
+                    </p>
 
-        <main>
-            <section id="sobreNosotrosEmpresa">
-                <h2>Bienvenidos a Freyja's sanctuary</h2>
-                <p>
-                    En Freyja's sanctuary, cada vela es una obra de arte única, elaborada con dedicación y pasión.
-                    <br>Nos especializamos en crear velas personalizadas que reflejan tu estilo y personalidad. <br>
-                    Elije tu aroma, color, diseño o personaje para darle vida a tus espacios y momentos especiales.
-                </p>
-            </section>
-            <section id="proyectos">
-                <h3>Galería</h3>
-                <p>Un pequeño ejemplo de nuestra artesania</p>
-                <div id="galeriaIndex" class="contenedor">
-                    <img class="velasGaleria" src="imagenes/vela1.jpeg" alt="Vela 1" height="1080" width="1334">
-                    <img class="velasGaleria" src="imagenes/vela2.jpg" alt="Vela 2" height="1080" width="1337">
-                    <img class="velasGaleria" src="imagenes/vela3.jpg" alt="Vela 3" height="1080" width="1203">
+                    <div class="hero-acciones">
+                        <a class="boton boton--primario" href="views/presupuesto.html">
+                            Calcular presupuesto
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </a>
+                        <a class="boton boton--fantasma" href="views/galeria.html">Ver la galería</a>
+                    </div>
+
+                    <div class="hero-datos">
+                        <div class="hero-dato">
+                            <strong>100%</strong>
+                            <span>Cera vegetal</span>
+                        </div>
+                        <div class="hero-dato">
+                            <strong>+450</strong>
+                            <span>Velas creadas</span>
+                        </div>
+                        <div class="hero-dato">
+                            <strong>7 días</strong>
+                            <span>Entrega media</span>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            
-            <section id="noticiasRelacionadas">
-                <h3>Noticias Relacionadas</h3>
-                <p>Aquí allareis noticias con opniniones sobre nosotros</p>
-                <div id="listaNoticias">
+
+                <div class="hero-collage revelar" data-retraso="150">
+                    <figure><img src="imagenes/vela1.jpeg" alt="Vela artesanal con acabado natural" width="1334" height="1080" loading="eager"></figure>
+                    <figure><img src="imagenes/vela4.jpg" alt="Vela personalizada con diseño propio" width="1047" height="1080" loading="lazy"></figure>
+                    <figure><img src="imagenes/vela3.jpg" alt="Detalle de vela aromática" width="1203" height="1080" loading="lazy"></figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------------- CINTA ---------------- -->
+        <div class="cinta">
+            <div class="envoltorio cinta-inner">
+                <span class="cinta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-4 4-8 4-8Z"/><path d="M12 22v-4"/></svg>
+                    Cera 100% vegetal
+                </span>
+                <span class="cinta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                    Personalización total
+                </span>
+                <span class="cinta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h13v10H3z"/><path d="M16 10h4l1 3v4h-5"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                    Envío en 7 días
+                </span>
+                <span class="cinta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 14.9 9l6.1.9-4.5 4.3 1.1 6.1L12 17.4 6.4 20.3l1.1-6.1L3 9.9 9.1 9Z"/></svg>
+                    Taller local en Sant Cugat
+                </span>
+            </div>
+        </div>
+
+        <!-- ---------------- SOBRE NOSOTROS ---------------- -->
+        <section class="seccion" id="sobreNosotrosEmpresa">
+            <div class="envoltorio">
+                <div class="seccion-cabecera centrada revelar">
+                    <span class="antetitulo">Sobre nosotros</span>
+                    <h2>Artesanía que se enciende despacio</h2>
+                    <p class="entradilla">
+                        En Freyja's Sanctuary cada vela nace de un proceso lento y cuidado.
+                        Trabajamos por encargo, en pequeñas series, para que ninguna pieza se parezca a otra.
+                    </p>
+                </div>
+
+                <div class="rejilla rejilla--3">
+                    <article class="tarjeta revelar">
+                        <div class="tarjeta-icono">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s3.5 3.6 3.5 7a3.5 3.5 0 0 1-7 0C8.5 5.6 12 2 12 2Z"/><rect x="7" y="12" width="10" height="10" rx="2"/></svg>
+                        </div>
+                        <h3>Elige tu aroma</h3>
+                        <p>Lavanda, cedro, vainilla o cítricos. Mezclamos esencias naturales hasta dar con tu perfume.</p>
+                    </article>
+
+                    <article class="tarjeta revelar" data-retraso="120">
+                        <div class="tarjeta-icono">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18 4.5 4.5 0 0 0 0-9 4.5 4.5 0 0 1 0-9Z"/></svg>
+                        </div>
+                        <h3>Diseña el color</h3>
+                        <p>Del blanco roto al verde bosque. Ajustamos el tono a tu espacio, tu marca o tu celebración.</p>
+                    </article>
+
+                    <article class="tarjeta revelar" data-retraso="240">
+                        <div class="tarjeta-icono">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+                        </div>
+                        <h3>Añade tu nombre</h3>
+                        <p>Grabamos nombres, fechas o personajes. El detalle que convierte una vela en un recuerdo.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------------- GALERÍA ---------------- -->
+        <section class="seccion" id="proyectos" style="padding-top: 0;">
+            <div class="envoltorio">
+                <div class="seccion-cabecera centrada revelar">
+                    <span class="antetitulo">Galería</span>
+                    <h2>Un pequeño ejemplo de nuestra artesanía</h2>
+                </div>
+
+                <div id="galeriaIndex" class="rejilla rejilla--3">
+                    <a class="tarjeta-media revelar" href="views/galeria.html">
+                        <img class="velasGaleria" src="imagenes/vela1.jpeg" alt="Vela artesanal 1" width="1334" height="1080" loading="lazy">
+                        <span class="media-pie">Serie natural</span>
+                    </a>
+                    <a class="tarjeta-media revelar" data-retraso="120" href="views/galeria.html">
+                        <img class="velasGaleria" src="imagenes/vela2.jpg" alt="Vela artesanal 2" width="1337" height="1080" loading="lazy">
+                        <span class="media-pie">Aromas de invierno</span>
+                    </a>
+                    <a class="tarjeta-media revelar" data-retraso="240" href="views/galeria.html">
+                        <img class="velasGaleria" src="imagenes/vela3.jpg" alt="Vela artesanal 3" width="1203" height="1080" loading="lazy">
+                        <span class="media-pie">Piezas personalizadas</span>
+                    </a>
+                </div>
+
+                <div class="hero-acciones revelar" style="justify-content: center; margin-top: 2.5rem;">
+                    <a class="boton boton--claro" href="views/galeria.html">Ver todas las velas</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------------- NOTICIAS ---------------- -->
+        <section class="seccion" id="noticiasRelacionadas" style="padding-top: 0;">
+            <div class="envoltorio">
+                <div class="seccion-cabecera revelar">
+                    <span class="antetitulo">Noticias</span>
+                    <h2>Lo último del taller</h2>
+                    <p class="entradilla">Novedades, talleres y opiniones sobre nuestro trabajo.</p>
+                </div>
+
+                <div id="listaNoticias" class="revelar">
                     <div id="noticia1"></div>
                     <div id="noticia2"></div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
 
-    <footer>
-        <div>
-            <a href="https://www.instagram.com/">
-            <img src="imagenes/Instagram_logo_2022.jpg.webp" alt="instagram" title="instagram" width="50" height="50">
-            </a>
-            <a href="https://www.facebook.com/">
-            <img src="imagenes/facebook.jpg" alt="facebook" title="facebook" width="50" height="50">
-            </a>
-            <a href="https://twitter.com/">
-            <img src="imagenes/twiter.png" alt="twitter" title="twitter" width="50" height="50">
-            </a> 
-            <p><a href="views/contacto.html">Plaça d'Octavià, 7, Sant Cugat 08892, España.</a></p>
-            <p><a href="views/avisoLegal.html">&copy; 2023 Freyja's Sanctuary. Todos los derechos reservados.</a></p>
+        <!-- ---------------- CTA ---------------- -->
+        <div class="envoltorio">
+            <section class="banda-cta revelar">
+                <h2>¿Imaginas tu vela perfecta?</h2>
+                <p>Cuéntanos cómo la quieres y calcula el precio en menos de un minuto. Sin compromiso.</p>
+                <div class="hero-acciones">
+                    <a class="boton boton--primario" href="views/presupuesto.html">Pedir presupuesto</a>
+                    <a class="boton boton--fantasma" href="views/contacto.html">Hablar con nosotros</a>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="pie">
+        <div class="envoltorio">
+            <div class="pie-inner">
+                <div class="pie-marca">
+                    <a class="marca" href="index.html">
+                        <img src="imagenes/logo.png" alt="Logo de Freyja's Sanctuary" width="84" height="100">
+                        <span class="marca-texto">
+                            <span class="marca-nombre">Freyja's Sanctuary</span>
+                            <span class="marca-lema">Velas artesanales</span>
+                        </span>
+                    </a>
+                    <p>Velas artesanales y personalizadas, hechas a mano con cera vegetal en Sant Cugat del Vallès.</p>
+                    <div class="redes">
+                        <a href="https://www.instagram.com/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg>
+                        </a>
+                        <a href="https://twitter.com/" title="Twitter" aria-label="Twitter" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 3H21l-6.5 7.4L22 21h-6l-4.7-6.1L5.9 21H3.8l7-8-6.6-10h6.2l4.2 5.6ZM17.8 19.5h1.2L8.3 4.4H7Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Navegación</h4>
+                    <ul class="pie-enlaces">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="views/galeria.html">Galería</a></li>
+                        <li><a href="views/presupuesto.html">Presupuesto</a></li>
+                        <li><a href="views/contacto.html">Contacto</a></li>
+                        <li><a href="views/avisoLegal.html">Aviso legal</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Contacto</h4>
+                    <ul class="pie-enlaces">
+                        <li><a href="views/contacto.html">Plaça d'Octavià, 7<br>Sant Cugat 08892, España</a></li>
+                        <li><a href="mailto:info@freyjasanctuary.com">info@freyjasanctuary.com</a></li>
+                        <li><a href="tel:+34123456789">+34 123 456 789</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pie-base">
+                <p>&copy; 2026 Freyja's Sanctuary. Todos los derechos reservados.</p>
+                <p><a href="views/avisoLegal.html">Aviso legal y privacidad</a></p>
+            </div>
         </div>
     </footer>
-    
+
 </body>
 </html>

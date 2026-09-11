@@ -3,133 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galería de velas artesanales de Freyja's Sanctuary: piezas únicas hechas a mano.">
+    <link rel="icon" href="../imagenes/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/ligthbox.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/lightbox.js"></script>
+    <script src="../js/lightbox.js" defer></script>
     <script src="../js/script.js" defer></script>
-    <title>Freyja's Sanctuary</title>
+    <script src="../js/ui.js" defer></script>
+    <title>Galería — Freyja's Sanctuary</title>
 </head>
 <body>
-    <header>
-        <div class="logoCont">
-            <img class="logo" src="../imagenes/logo.png" alt="Logo de Freyja's sanctuary" width="84" height="100">
-            <h1>Freyja's sanctuary</h1>
+
+    <header class="cabecera">
+        <div class="envoltorio cabecera-inner">
+            <a class="marca" href="../index.html">
+                <img src="../imagenes/logo.png" alt="Logo de Freyja's Sanctuary" width="84" height="100">
+                <span class="marca-texto">
+                    <span class="marca-nombre">Freyja's Sanctuary</span>
+                    <span class="marca-lema">Velas artesanales</span>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navPrincipal">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav-principal" id="navPrincipal" aria-label="Navegación principal">
+                <a href="../index.html">Inicio</a>
+                <a class="selec" href="galeria.html">Galería</a>
+                <a href="presupuesto.html">Presupuesto</a>
+                <a href="contacto.html">Contacto</a>
+                <a class="boton boton--primario boton--pequeno nav-cta" href="presupuesto.html">Pide tu vela</a>
+            </nav>
         </div>
     </header>
 
-    <nav>
-        <div class="navbar">
-            <a href="../index.html">inicio</a>
-            <a class="selec" href="galeria.html">Galeria</a>
-            <a href="presupuesto.html">Presupuesto</a>
-            <a href="contacto.html">Contacto</a>
+    <main class="contenido-principal">
+
+        <section class="cabecera-pagina">
+            <div class="envoltorio">
+                <nav class="migas" aria-label="Migas de pan">
+                    <a href="../index.html">Inicio</a>
+                    <span>/</span>
+                    <span>Galería</span>
+                </nav>
+                <h1>Nuestra galería</h1>
+                <p class="entradilla">
+                    Seis piezas del taller. Pulsa cualquier imagen para verla a pantalla completa.
+                </p>
+            </div>
+        </section>
+
+        <div class="contPresu">
+            <div id="galeria">
+                <div class="row">
+                    <div class="column revelar">
+                        <img src="../imagenes/vela1.jpeg" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" alt="Vela artesanal 1" width="1334" height="1080" loading="lazy">
+                    </div>
+                    <div class="column revelar" data-retraso="80">
+                        <img src="../imagenes/vela2.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow cursor" alt="Vela artesanal 2" width="1337" height="1080" loading="lazy">
+                    </div>
+                    <div class="column revelar" data-retraso="160">
+                        <img src="../imagenes/vela3.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow cursor" alt="Vela artesanal 3" width="1203" height="1080" loading="lazy">
+                    </div>
+                    <div class="column revelar" data-retraso="240">
+                        <img src="../imagenes/vela4.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow cursor" alt="Vela artesanal 4" width="1047" height="1080" loading="lazy">
+                    </div>
+                    <div class="column revelar" data-retraso="320">
+                        <img src="../imagenes/vela5.jpg" onclick="openModal();currentSlide(5)" class="hover-shadow cursor" alt="Vela artesanal 5" width="1347" height="1080" loading="lazy">
+                    </div>
+                    <div class="column revelar" data-retraso="400">
+                        <img src="../imagenes/vela6.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow cursor" alt="Vela artesanal 6" width="1386" height="1080" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Lightbox -->
+                <div id="myModal" class="modal">
+                    <span class="close cursor" onclick="closeModal()" role="button" tabindex="0" aria-label="Cerrar">&times;</span>
+
+                    <div class="modal-content">
+
+                        <div class="mySlides">
+                            <div class="numbertext">1 / 6</div>
+                            <img src="../imagenes/vela1.jpeg" alt="Vela artesanal 1" width="1334" height="1080">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext">2 / 6</div>
+                            <img src="../imagenes/vela2.jpg" alt="Vela artesanal 2" width="1337" height="1080">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext">3 / 6</div>
+                            <img src="../imagenes/vela3.jpg" alt="Vela artesanal 3" width="1203" height="1080">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext">4 / 6</div>
+                            <img src="../imagenes/vela4.jpg" alt="Vela artesanal 4" width="1047" height="1080">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext">5 / 6</div>
+                            <img src="../imagenes/vela5.jpg" alt="Vela artesanal 5" width="1347" height="1080">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext">6 / 6</div>
+                            <img src="../imagenes/vela6.jpg" alt="Vela artesanal 6" width="1386" height="1080">
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)" role="button" tabindex="0" aria-label="Anterior">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)" role="button" tabindex="0" aria-label="Siguiente">&#10095;</a>
+
+                        <div class="caption-container">
+                            <p id="caption"></p>
+                        </div>
+
+                        <div class="tira-miniaturas">
+                            <img class="demo cursor" src="../imagenes/vela1.jpeg" onclick="currentSlide(1)" alt="Vela artesanal 1">
+                            <img class="demo cursor" src="../imagenes/vela2.jpg" onclick="currentSlide(2)" alt="Vela artesanal 2">
+                            <img class="demo cursor" src="../imagenes/vela3.jpg" onclick="currentSlide(3)" alt="Vela artesanal 3">
+                            <img class="demo cursor" src="../imagenes/vela4.jpg" onclick="currentSlide(4)" alt="Vela artesanal 4">
+                            <img class="demo cursor" src="../imagenes/vela5.jpg" onclick="currentSlide(5)" alt="Vela artesanal 5">
+                            <img class="demo cursor" src="../imagenes/vela6.jpg" onclick="currentSlide(6)" alt="Vela artesanal 6">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <section class="banda-cta revelar" style="margin-top: clamp(3rem, 6vw, 5rem); margin-bottom: 0;">
+                <h2>¿Te gusta lo que ves?</h2>
+                <p>Podemos hacerla igual, o completamente distinta. Tú decides el aroma, el color y el diseño.</p>
+                <div class="hero-acciones">
+                    <a class="boton boton--primario" href="presupuesto.html">Pedir presupuesto</a>
+                    <a class="boton boton--fantasma" href="contacto.html">Contactar</a>
+                </div>
+            </section>
         </div>
-    </nav>
-    <div class="contPresu" style="flex-direction: column;">
-         <h2 class="tituloSeccion">Galeria</h2>
-        <div id="galeria"> 
-            <div class="row">
-            <div class="column">
-                <img src="../imagenes/vela1.jpeg" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" alt="Vela artesanal 1" height="1080" width="1334">
-            </div>
-            <div class="column">
-                <img src="../imagenes/vela2.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow cursor" alt="Vela artesanal 2" height="1080" width="1337">
-            </div>
-            <div class="column">
-                <img src="../imagenes/vela3.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow cursor" alt="Vela artesanal 3" height="1080" width="1203">
-            </div>
-            <div class="column">
-                <img src="../imagenes/vela4.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow cursor" alt="Vela artesanal 4" height="1080" width="1047">
-            </div>
-            <div class="column">
-                <img src="../imagenes/vela5.jpg" onclick="openModal();currentSlide(5)" class="hover-shadow cursor" alt="Vela artesanal 5" height="1080" width="1347">
-            </div>
-            <div class="column">
-                <img src="../imagenes/vela6.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow cursor" alt="Vela artesanal 6" height="1080" width="1386">
-            </div>
-            </div>
 
-            <div id="myModal" class="modal">
-            <span class="close cursor" onclick="closeModal()">&times;</span>
-            <div class="modal-content">
+    </main>
 
-                <div class="mySlides">
-                <div class="numbertext">1 / 6</div>
-                <img src="../imagenes/vela1.jpeg" style="width:100%" alt="Vela artesanal 1" height="1080" width="1334">
+    <footer class="pie">
+        <div class="envoltorio">
+            <div class="pie-inner">
+                <div class="pie-marca">
+                    <a class="marca" href="../index.html">
+                        <img src="../imagenes/logo.png" alt="Logo de Freyja's Sanctuary" width="84" height="100">
+                        <span class="marca-texto">
+                            <span class="marca-nombre">Freyja's Sanctuary</span>
+                            <span class="marca-lema">Velas artesanales</span>
+                        </span>
+                    </a>
+                    <p>Velas artesanales y personalizadas, hechas a mano con cera vegetal en Sant Cugat del Vallès.</p>
+                    <div class="redes">
+                        <a href="https://www.instagram.com/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg>
+                        </a>
+                        <a href="https://twitter.com/" title="Twitter" aria-label="Twitter" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 3H21l-6.5 7.4L22 21h-6l-4.7-6.1L5.9 21H3.8l7-8-6.6-10h6.2l4.2 5.6ZM17.8 19.5h1.2L8.3 4.4H7Z"/></svg>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="mySlides">
-                <div class="numbertext">2 / 6</div>
-                <img src="../imagenes/vela2.jpg" style="width:100%" alt="Vela artesanal 2" height="1080" width="1337">
+                <div>
+                    <h4>Navegación</h4>
+                    <ul class="pie-enlaces">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="presupuesto.html">Presupuesto</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="avisoLegal.html">Aviso legal</a></li>
+                    </ul>
                 </div>
 
-                <div class="mySlides">
-                <div class="numbertext">3 / 6</div>
-                <img src="../imagenes/vela3.jpg" style="width:100%" alt="Vela artesanal 3" height="1080" width="1203">
-                </div>
-                
-                <div class="mySlides">
-                <div class="numbertext">4 / 6</div>
-                <img src="../imagenes/vela4.jpg" style="width:100%" alt="Vela artesanal 4" height="1080" width="1047">
-                </div>
-
-                <div class="mySlides">
-                <div class="numbertext">5 / 6</div>
-                <img src="../imagenes/vela5.jpg" style="width:100%" alt="Vela artesanal 5" height="1080" width="1347">
-                </div>
-
-                <div class="mySlides">
-                <div class="numbertext">6 / 6</div>
-                <img src="../imagenes/vela6.jpg" style="width:100%" alt="Vela artesanal 6" height="1080" width="1386">
-                </div>
-                
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                <div class="caption-container">
-                <p id="caption"></p>
-                </div>
-
-
-                <div class="column">
-                <img class="demo cursor" src="../imagenes/vela1.jpeg" style="width:100%" onclick="currentSlide(1)" alt="Vela artesanal 1">
-                </div>
-                <div class="column">
-                <img class="demo cursor" src="../imagenes/vela2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Vela artesanal 2">
-                </div>
-                <div class="column">
-                <img class="demo cursor" src="../imagenes/vela3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Vela artesanal 3">
-                </div>
-                <div class="column">
-                <img class="demo cursor" src="../imagenes/vela4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Vela artesanal 4">
-                </div>
-                <div class="column">
-                <img class="demo cursor" src="../imagenes/vela5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Vela artesanal 5">
-                </div>
-                <div class="column">
-                <img class="demo cursor" src="../imagenes/vela6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Vela artesanal 6">
+                <div>
+                    <h4>Contacto</h4>
+                    <ul class="pie-enlaces">
+                        <li><a href="contacto.html">Plaça d'Octavià, 7<br>Sant Cugat 08892, España</a></li>
+                        <li><a href="mailto:info@freyjasanctuary.com">info@freyjasanctuary.com</a></li>
+                        <li><a href="tel:+34123456789">+34 123 456 789</a></li>
+                    </ul>
                 </div>
             </div>
+
+            <div class="pie-base">
+                <p>&copy; 2026 Freyja's Sanctuary. Todos los derechos reservados.</p>
+                <p><a href="avisoLegal.html">Aviso legal y privacidad</a></p>
             </div>
         </div>
-    </div>
-
-    <footer>
-        <div>
-            <a href="https://www.instagram.com/">
-            <img src="../imagenes/Instagram_logo_2022.jpg.webp" alt="instagram" title="instagram" width="50" height="50">
-            </a>
-            <a href="https://www.facebook.com/">
-            <img src="../imagenes/facebook.jpg" alt="facebook" title="facebook" width="50" height="50">
-            </a>
-            <a href="https://twitter.com/">
-            <img src="../imagenes/twiter.png" alt="twitter" title="twitter" width="50" height="50">
-            </a> 
-            <p><a href="contacto.html">Plaça d'Octavià, 7, Sant Cugat 08892, España.</a></p>
-            <p><a href="avisoLegal.html">&copy; 2023 Freyja's Sanctuary. Todos los derechos reservados.</a></p>
-        </div>
-    </footer> 
+    </footer>
 
 </body>
 </html>

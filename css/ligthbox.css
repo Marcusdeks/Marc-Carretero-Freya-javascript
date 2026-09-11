@@ -1,208 +1,256 @@
-#galeria{
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    overflow: hidden;
-    row-gap: 150px; 
-    column-gap: 150px; 
-    gap: 10px;
-    padding: 20px;
+/* ============================================================
+   Galería y lightbox — Freyja's Sanctuary
+   ============================================================ */
+
+#galeria {
+    display: block;
+    margin: 0;
+    padding: 0;
 }
+
+/* -------------------- REJILLA DE MINIATURAS -------------------- */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.row::after { content: none; }
+
 .row > .column {
-  padding: 8px 8px;
+    float: none;
+    width: auto;
+    padding: 0;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.row > .column img {
+    width: 100%;
+    height: clamp(280px, 30vw, 400px);
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radio-l);
+    border: 1px solid var(--borde);
+    box-shadow: var(--sombra-m);
+    cursor: pointer;
+    transition: transform 600ms var(--ease), box-shadow var(--medio), filter var(--medio);
 }
 
-/* Create four equal columns that floats next to eachother */
-.column {
-  float: left;
-  width: 25%;
+.row > .column img:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: var(--sombra-l);
+    filter: saturate(1.08);
 }
 
-/* Hacer que todas las imágenes de la galería tengan el mismo tamaño */
-.column img {
-  width: 100%;
-  height: 300px; /* Altura más grande - era 200px */
-  object-fit: cover; /* Mantiene proporción y rellena el espacio */
-  object-position: center; /* Centra la imagen */
-}
+img.hover-shadow { transition: 0.3s; }
 
-/* The Modal (background) */
+/* -------------------- MODAL -------------------- */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1000; /**/
-  padding: 20px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    padding: clamp(1rem, 4vw, 3rem);
+    overflow: auto;
+    background: rgba(6, 12, 8, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
 }
 
-/* Modal Content */
+.modal.show { animation: aparecerModal 300ms var(--ease); }
+
+@keyframes aparecerModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .modal-content {
-  position: relative;
-  margin: auto;
-  padding: 0;
-  width: 50%;
-  max-width: 1000px;
-  max-height: 90vh;
-  top: 50%;
-  transform: translateY(-50%);
+    position: relative;
+    top: auto;
+    transform: none;
+    margin: auto;
+    padding: 0;
+    width: min(100%, 940px);
+    max-width: 940px;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    animation: subirModal 420ms var(--ease);
 }
 
-/* Hacer que las imágenes del lightbox se ajusten a la pantalla */
+@keyframes subirModal {
+    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    to { opacity: 1; transform: none; }
+}
+
+.mySlides {
+    display: none;
+    position: relative;
+}
+
 .mySlides img {
-  width: 100%;
-  max-height: 70vh;
-  object-fit: contain;
-  object-position: center;
+    width: 100%;
+    max-height: 66vh;
+    object-fit: contain;
+    border-radius: var(--radio-l);
 }
 
-/* The Close Button */
+.numbertext {
+    position: absolute;
+    top: 0.9rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(10, 19, 13, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: var(--crema-50);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+/* Cerrar */
 .close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
+    position: fixed;
+    top: clamp(1rem, 3vw, 2rem);
+    right: clamp(1rem, 3vw, 2rem);
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(252, 249, 244, 0.22);
+    background: rgba(10, 19, 13, 0.6);
+    color: var(--crema-50);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    transition: background var(--rapido), transform var(--rapido), color var(--rapido);
 }
 
 .close:hover,
 .close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
+    background: var(--ambar-500);
+    border-color: var(--ambar-500);
+    color: var(--verde-950);
+    transform: rotate(90deg);
+    text-decoration: none;
 }
 
-/* Hide the slides by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
+/* Anterior / siguiente */
 .prev,
 .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
+    position: absolute;
+    top: 40%;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    border-radius: 50%;
+    border: 1px solid rgba(252, 249, 244, 0.2);
+    background: rgba(10, 19, 13, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--crema-50);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: background var(--rapido), transform var(--rapido), color var(--rapido), border-color var(--rapido);
 }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+.prev { left: 1rem; }
+.next { right: 1rem; }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+    background: var(--ambar-500);
+    border-color: var(--ambar-500);
+    color: var(--verde-950);
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
+.prev:hover { transform: translateX(-3px); }
+.next:hover { transform: translateX(3px); }
 
-/* Caption text */
+/* Pie de foto */
 .caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 5px 5px;
-  color: white;
+    order: 3;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radio-m);
+    background: rgba(252, 249, 244, 0.06);
+    border: 1px solid rgba(252, 249, 244, 0.12);
+    text-align: center;
+    color: var(--crema-50);
+    font-family: var(--fuente-display);
+    font-size: 1.05rem;
+    min-height: 2.9rem;
 }
 
-img.demo {
-  opacity: 0.6;
+/* Miniaturas dentro del modal */
+.tira-miniaturas {
+    order: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
 }
 
-.active,
-.demo:hover {
-  opacity: 1;
+.modal-content .demo {
+    width: 84px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 0.45;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: opacity var(--rapido), border-color var(--rapido), transform var(--rapido);
 }
 
-img.hover-shadow {
-  transition: 0.3s;
+.modal-content .demo:hover { opacity: 0.85; transform: translateY(-2px); }
+
+.modal-content .demo.active {
+    opacity: 1;
+    border-color: var(--ambar-500);
 }
 
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+.modal-content .mySlides { order: 1; }
 
-/* Responsividad para pantallas pequeñas */
+/* -------------------- RESPONSIVE -------------------- */
 @media screen and (max-width: 768px) {
-  .column {
-    width: 50%; /* 2 columnas en tablets */
-  }
-  
-  .column img {
-    width: 100%;
-    height: 150px; /* Altura menor en pantallas pequeñas */
-    display: block;
-    padding: 5px;
-  }
-  
-  .modal-content {
-    width: 98%;
-    padding: 10px;
-  }
+    .row { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 
-  .prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
+    .row > .column img {
+        height: 210px;
+        border-radius: var(--radio-m);
+    }
 
+    .modal-content { width: 100%; }
+    .mySlides img { max-height: 56vh; }
+
+    .prev,
+    .next {
+        width: 42px;
+        height: 42px;
+        top: 38%;
+        margin-top: -21px;
+        font-size: 16px;
+    }
+
+    .modal-content .demo { width: 62px; height: 52px; }
 }
 
 @media screen and (max-width: 480px) {
-  .column {
-    width: 50%; /* 1 columna en móviles */
-  }
-  
-  .column img {  
-    width: 100%;
-    height: 150px; /* Altura menor en pantallas pequeñas */
-    display: block;
-  }
-  
-  .prev, .next {
-    font-size: 16px;
-    padding: 12px;
-  }
-  
+    .row { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .row > .column img { height: 160px; }
+    .caption-container { font-size: 0.92rem; }
 }
